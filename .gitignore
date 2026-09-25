@@ -1,0 +1,5 @@
+*.key
+*.env
+wg*.conf
+*.bin
+*.cfg
