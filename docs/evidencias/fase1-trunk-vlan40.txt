@@ -1,0 +1,9 @@
+# Evidencia · Fase 1 · Trunk 802.1Q hacia fw01 (VLAN 40)
+# Captura en fw01: sudo tcpdump -e -n -i enp5s0 vlan 40
+# Portátil en la boca 3 (acceso VLAN 40, 10.10.40.50) → fw01 por la boca 4 (trunk, 10.10.40.1)
+# MAC sustituidas por marcadores.
+
+<mac-portatil> > <mac-fw01>, ethertype 802.1Q (0x8100), length 64: vlan 40, p 0, ethertype ARP (0x0806), Request who-has 10.10.40.1 tell 10.10.40.50, length 46
+<mac-fw01> > <mac-portatil>, ethertype 802.1Q (0x8100), length 46: vlan 40, p 0, ethertype ARP (0x0806), Reply 10.10.40.1 is-at <mac-fw01>, length 28
+<mac-portatil> > <mac-fw01>, ethertype 802.1Q (0x8100), length 102: vlan 40, p 0, ethertype IPv4 (0x0800), 10.10.40.50 > 10.10.40.1: ICMP echo request, id 27909, seq 1, length 64
+<mac-fw01> > <mac-portatil>, ethertype 802.1Q (0x8100), length 102: vlan 40, p 0, ethertype IPv4 (0x0800), 10.10.40.1 > 10.10.40.50: ICMP echo reply, id 27909, seq 1, length 64
